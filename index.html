@@ -1,0 +1,285 @@
+<html lang="en">
+s    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Advanced Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="notificationContainer"></div>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/50" alt="Logo" class="logo">
+                <h2>AdminPro</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-page="dashboard"><a href="#dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li data-page="analytics"><a href="#analytics"><i class="fas fa-chart-line"></i>PORTFOLIO</a></li>
+                <li data-page="sales"><a href="#sales"><i class="fas fa-shopping-cart"></i>SIP</a></li>
+                <li data-page="customers"><a href="#customers"><i class="fas fa-users"></i>Algo Prediction</a></li>
+                <li data-page="inventory"><a href="#inventory"><i class="fas fa-box"></i>Inventory</a></li>
+                <li data-page="settings"><a href="#settings"><i class="fas fa-cog"></i>Settings</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-info" id="userInfoDropdown">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                    <span>shantnu</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </header>
+            <div id="dashboard" class="page-content active">
+                <h1>Market Today</h1>
+                <div class="stats-grid">
+                    <div class="stat-card glow">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Active Users</h3>
+                            <p>15,687</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glow">
+                        <i class="fas fa-shopping-bag"></i>
+                        <div class="stat-info">
+                            <h3>Turnover</h3>
+                            <p>124,563</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glow">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-info">
+                            <h3>Nifty</h3>
+                            <p>25395</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glow">
+                        <i class="fas fa-percent"></i>
+                        <div class="stat-info">
+                            <h3>Today's Movement</h3>
+                            <p>+24.5%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="charts-container">
+                    <div class="chart-card glow">
+                        <h3>HAL</h3>
+                        <div id="salesChart"></div>
+                    </div>
+                    <div class="chart-card glow">
+                        <h3>COCHINSHIP</h3>
+                        <div id="userGrowthChart"></div>
+                    </div>
+                </div>
+                <div class="data-tables">
+                    <div class="table-card glow">
+                        <h3>Top Gainer</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sr No.</th>
+                                    <th>Stock Name</th>
+                                    <th>Market Cap</th>
+                                    <th>Current Price</th>
+                                    <th>Today's Gain %</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentOrdersBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="table-card glow">
+                        <h3>Top Losers</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Stock Name</th>
+                                    <th>Market Cap</th>
+                                    <th>Current Price</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topProductsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="analytics" class="page-content">
+                <h1>PORTFOLIO</h1>
+                <div class="charts-container">
+                    <div class="chart-card glow">
+                        <h3>HOLDINGS</h3>
+                        <div id="trafficSourcesChart"></div>
+                    </div>
+                    <div class="chart-card glow">
+                        <h3>VOLUME</h3>
+                        <div id="conversionRatesChart"></div>
+                    </div>
+                </div>
+                <div class="data-tables">
+                    <div class="table-card glow">
+                        <h3>Portfolio Analyser</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Market Value</th>
+                                    <th>Sector</th>
+                                    <th>Unrealized G/L</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topPagesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="sales" class="page-content">
+                <h1>SIP Management</h1>
+                <div class="charts-container">
+                    <div class="chart-card glow">
+                        <h3>Monthly Growth</h3>
+                        <div id="monthlySalesChart"></div>
+                    </div>
+                    <div class="chart-card glow">
+                        <h3>SIP HOLDINGS</h3>
+                        <div id="salesByCategoryChart"></div>
+                    </div>
+                </div>
+                <div class="data-tables">
+                    <div class="table-card glow">
+                        <h3>SIP Performance</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Market Value</th>
+                                    <th>Total Holdings(In Units)</th>
+                                    <th>Performance Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesRepBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="customers" class="page-content">
+                <h1>Algo Performance Analysis</h1>
+                <div class="charts-container">
+                    <div class="chart-card glow">
+                        <h3>Algo Returns</h3>
+                        <div id="customerAcquisitionChart"></div>
+                    </div>
+                    <div class="chart-card glow">
+                        <h3>Algo Returns Against Index</h3>
+                        <div id="customerSatisfactionChart"></div>
+                    </div>
+                </div>
+                <div class="data-tables">
+                    <div class="table-card glow">
+                        <h3>Algo Analyser</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Initial Capital</th>
+                                    <th>Orders</th>
+                                    <th>Last Order Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topCustomersBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="inventory" class="page-content">
+                <h1>Inventory Management</h1>
+                <div class="charts-container">
+                    <div class="chart-card glow">
+                        <h3>Stock Levels</h3>
+                        <div id="stockLevelsChart"></div>
+                    </div>
+                    <div class="chart-card glow">
+                        <h3>Product Turnover</h3>
+                        <div id="productTurnoverChart"></div>
+                    </div>
+                </div>
+                <div class="data-tables">
+                    <div class="table-card glow">
+                        <h3>Low Stock Alert</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Current Stock</th>
+                                    <th>Reorder Level</th>
+                                    <th>Supplier</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lowStockBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="settings" class="page-content">
+                <h1>Settings</h1>
+                <div class="settings-container">
+                    <div class="settings-card glow">
+                        <h3>Account Settings</h3>
+                        <form id="accountSettingsForm">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" value="johndoe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" value="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">New Password</label>
+                                <input type="password" id="password" name="password">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="settings-card glow">
+                        <h3>Notification Preferences</h3>
+                        <form id="notificationSettingsForm">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="emailNotifications" checked>
+                                    Email Notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="smsNotifications">
+                                    SMS Notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="pushNotifications" checked>
+                                    Push Notifications
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Preferences</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+</body>
+</html>
